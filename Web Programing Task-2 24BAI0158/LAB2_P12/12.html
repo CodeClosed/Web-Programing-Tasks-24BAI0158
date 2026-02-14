@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Portal</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: skyblue;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Navigation */
+        .nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .nav a {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .nav a:hover {
+            background-color: navy;
+        }
+
+        /* Form container */
+        form {
+            width: 70%;
+            margin: auto;
+        }
+
+        /* Section styling */
+        .section {
+            background-color: darkblue;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        /* Input alignment */
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: inline-block;
+            width: 180px;
+        }
+
+        input, select {
+            padding: 6px;
+            width: 250px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            background-color: white;
+            color: darkblue;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Registration Portal</h1>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#personal">Personal Information</a>
+        <a href="#academic">Academic Details</a>
+        <a href="#address">Address Information</a>
+        <a href="#account">Account Credentials</a>
+    </div>
+
+    <!-- Form -->
+    <form onsubmit="showPopup(); return false;">
+
+        <!-- Section 1 -->
+        <div class="section" id="personal">
+            <h2>Personal Information</h2>
+
+            <div class="form-group">
+                <label>Full Name:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input type="date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <select required>
+                    <option value="">Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address:</label>
+                <input type="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number:</label>
+                <input type="text" required>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section" id="academic">
+            <h2>Academic Details</h2>
+
+            <div class="form-group">
+                <label>Register Number:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Degree Program:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Department:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Year of Study:</label>
+                <input type="text" required>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section" id="address">
+            <h2>Address Information</h2>
+
+            <div class="form-group">
+                <label>Door Number:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Street Name:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>City:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>State:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Pincode:</label>
+                <input type="text" required>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section" id="account">
+            <h2>Account Credentials</h2>
+
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" required>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password:</label>
+                <input type="password" required>
+            </div>
+
+            <div class="submit-btn">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+
+    </form>
+        <p>VIHAAN VARSHNEY 24BAI0158</p>
+
+
+    <script>
+        function showPopup() {
+            alert("Form Submitted Successfully");
+        }
+    </script>
+
+</body>
+</html>

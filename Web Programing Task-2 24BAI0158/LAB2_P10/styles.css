@@ -1,0 +1,16 @@
+/* Styling the heading */
+h1 {
+    color: #2c3e50;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Styling the paragraph */
+p {
+    color: #34495e;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    width: 60%;
+    margin: 20px auto;
+    line-height: 1.6;
+}
