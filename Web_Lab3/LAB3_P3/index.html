@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Email Generator</title>
+
+    <script>
+        // Function to generate the email address
+        // The form reference is passed using this.form
+        function genEmail(f) {
+
+            // Store the form reference in a variable
+            let form = f;
+
+            // Access the first name value using form.elements
+            let first = form.elements["first"].value;
+
+            // Access the last name value using form.elements
+            let last = form.elements["last"].value;
+
+            // Generate email using string concatenation
+            // and display it inside the output element
+            document.getElementById("output").innerHTML =
+                first + "." + last + "@park.edu";
+
+            // Reset the form fields
+            form.reset();
+
+            // Set focus back to the first name field
+            form.elements["first"].focus();
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Heading of the page -->
+    <h1>Email Generator</h1>
+
+    <!-- Form to collect first and last name -->
+    <form id="mainForm">
+
+        <!-- Input field for first name -->
+        <label>Firstname:</label>
+        <input id="first" type="text"><br>
+
+        <!-- Input field for last name -->
+        <label>Lastname:</label>
+        <input id="last" type="text"><br>
+
+        <!-- Button that calls the email generator function -->
+        <button type="button" onclick="genEmail(this.form);">
+            Generate Email
+        </button>
+
+    </form>
+
+    <!-- Area where the generated email will be displayed -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

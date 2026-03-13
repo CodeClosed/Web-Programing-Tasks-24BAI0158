@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Rectangle Area</title>
+
+    <script>
+        // Function to calculate the area of a rectangle
+        function rectArea() {
+
+            // Get values entered by the user from input fields
+            var length = document.getElementById("length").value;
+            var breadth = document.getElementById("breadth").value;
+
+            // Integer calculation using parseInt()
+            var area = parseInt(length) * parseInt(breadth);
+
+            // Display the integer calculation result
+            document.getElementById("result").innerHTML =
+                "Area (Integer Calculation): " + area;
+
+            // Floating point calculation using parseFloat()
+            // Same variable 'area' reused (demonstrates loose typing)
+            area = parseFloat(length) * parseFloat(breadth);
+
+            // Append the floating point result to the previous output
+            document.getElementById("result").innerHTML +=
+                "<br>Area (Floating Point Calculation): " + area;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Page heading -->
+    <h2>Rectangle Area Calculator</h2>
+
+    <!-- Input field for rectangle length -->
+    Length: <input type="text" id="length"><br><br>
+
+    <!-- Input field for rectangle breadth -->
+    Breadth: <input type="text" id="breadth"><br><br>
+
+    <!-- Button to trigger the area calculation -->
+    <input type="button" value="Calculate Area" onclick="rectArea()">
+
+    <!-- Paragraph to display results -->
+    <p id="result"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

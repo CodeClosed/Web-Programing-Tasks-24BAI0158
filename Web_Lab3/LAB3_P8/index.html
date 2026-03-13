@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>Mul Table</title>
+
+    <script>
+        // Function to print multiplication table
+        function printTable() {
+
+            // Get number entered by the user
+            let n = parseInt(document.getElementById("num1").value);
+
+            // Initialize counter variable
+            let i = 1;
+
+            // Variable to store table output
+            result = "";
+
+            // do-while loop executes at least once
+            do {
+
+                // Build multiplication table line
+                result += n + " X " + i + " = " + (n * i) + "<br>";
+
+                // Increment counter
+                i++;
+
+            } while (i <= 10);  // Loop condition checked after execution
+
+            // Display the table in HTML element
+            document.getElementById("output").innerHTML = result;
+        } 
+    </script>
+</head>
+
+<body>
+
+    <!-- Page heading -->
+    <h3>Multiplication Table</h3>
+
+    <!-- Input field to enter the number -->
+    Number: <input type="number" id="num1" step="any"><br><br>
+
+    <!-- Button to trigger the function -->
+    <input type="button" value="Print Table" onclick="printTable();">
+
+    <!-- Output area -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

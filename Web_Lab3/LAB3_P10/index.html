@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Subject Selection</title>
+
+    <script>
+        // Function to count and display selected subjects
+        function checkColor() {
+
+            // Get all checkbox elements by name
+            let buttons = document.getElementsByName("colorButton");
+
+            // Variable to store final output string
+            let result = "";
+
+            // Array to store selected subject names
+            let selected = [];
+
+            // Counter variable to count selected checkboxes
+            let selectedCount = 0;
+
+            // Loop through all checkbox elements
+            for (let i = 0; i < buttons.length; i++) {
+
+                // Check if the checkbox is selected
+                if (buttons[i].checked) {
+
+                    // Add selected subject to array
+                    selected.push(buttons[i].value);
+
+                    // Increase counter
+                    selectedCount++;
+                }
+            }
+
+            // Convert array to string using join()
+            result = result + selected.join(", ");
+
+            // Display count and selected subjects
+            document.getElementById("output").innerHTML =
+                "Selected " + selectedCount + " subjects : " + result;
+        }      
+    </script>
+</head>
+
+<body>
+
+    <!-- Page heading -->
+    <h3>Subject Selected</h3>
+
+    <!-- Checkboxes for subjects (multiple selections allowed) -->
+    Maths: <input type="checkbox" name="colorButton" value="Maths"><br>
+
+    Physics: <input type="checkbox" name="colorButton" value="Physics"><br>
+
+    Chemistry: <input type="checkbox" name="colorButton" value="Chemistry"><br>
+
+    English: <input type="checkbox" name="colorButton" value="English"><br>
+
+    <!-- Button to trigger selection check -->
+    <input type="button" value="Color selected" onclick="checkColor()">
+
+    <!-- Output area -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

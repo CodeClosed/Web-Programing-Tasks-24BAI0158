@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+
+    <script>
+        // Function to perform calculation based on the operator passed
+        function calValue(operator) {
+
+            // Convert input values into floating point numbers
+            let a = parseFloat(document.getElementById("num1").value);
+            let b = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            // Check if the inputs are valid numbers
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById("output").innerHTML =
+                    "Please enter valid numbers";
+                return;
+            }
+
+            // Perform operation using switch statement
+            switch (operator) {
+
+                case "+":
+                    result = a + b;
+                    break;
+
+                case "-":
+                    result = a - b;
+                    break;
+
+                case "*":
+                    result = a * b;
+                    break;
+
+                case "/":
+                    // Handle division by zero
+                    if (b === 0) {
+                        result = "Cannot divide by zero";
+                    } else {
+                        result = a / b;
+                    }
+                    break;
+
+                // Default case for unexpected operators
+                default:
+                    result = "Invalid Operation";
+            }
+
+            // Display the result on the webpage
+            document.getElementById("output").innerHTML =
+                "Result: " + result;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Input field for first number -->
+    Number 1: <input type="number" id="num1" step="any"><br><br>
+
+    <!-- Input field for second number -->
+    Number 2: <input type="number" id="num2" step="any"><br><br>
+
+    <!-- Buttons to perform different arithmetic operations -->
+    <input type="button" value="Add" onclick="calValue('+')">
+    <input type="button" value="Sub" onclick="calValue('-')">
+    <input type="button" value="Mul" onclick="calValue('*')">
+    <input type="button" value="Div" onclick="calValue('/')">
+
+    <!-- Area to display the result -->
+    <p id="output">Result: </p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

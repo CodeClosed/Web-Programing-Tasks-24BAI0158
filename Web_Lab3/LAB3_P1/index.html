@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Hello World</title>
+
+    <script>
+        // Function declaration that runs when button is clicked
+        function helloWorld(){
+
+            // Access the HTML element with id "output"
+            // outerHTML replaces the element itself with new content
+            // "+=" appends the new text instead of replacing everything
+            document.getElementById("output").outerHTML += "Hello World" + "<br>";
+
+        }    
+    </script>
+
+</head>
+<body>
+
+    <!-- Heading for the webpage -->
+    <h1>Print Hello World</h1>
+
+    <!-- Button that triggers the JavaScript function when clicked -->
+    <button id="print" onclick="helloWorld();">Hello World</button>
+
+    <!-- Empty element where the output will appear -->
+    <h3 id="output"></h3>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+</html>

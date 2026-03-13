@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Color Button</title>
+
+    <script>
+        // Function to check which radio button is selected
+        function checkColor() {
+
+            // Get all radio buttons with the same name
+            let buttons = document.getElementsByName("colorButton");
+
+            // Variable to store result
+            let result = "Result: ";
+
+            // Loop through the radio button collection
+            for (let i = 0; i < buttons.length; i++) {
+
+                // Check if the current radio button is selected
+                if (buttons[i].checked) {
+
+                    // Append the selected value
+                    result += buttons[i].value;
+
+                    // Exit the loop once selection is found
+                    break;
+                }
+            }
+
+            // Display the selected color
+            document.getElementById("output").innerHTML = result;
+        }      
+    </script>
+</head>
+
+<body>
+
+    <!-- Page heading -->
+    <h3>Color Selected</h3>
+
+    <!-- Radio buttons grouped using same name -->
+    Red: <input type="radio" name="colorButton" value="Red">
+
+    Blue: <input type="radio" name="colorButton" value="Blue">
+
+    Green: <input type="radio" name="colorButton" value="Green">
+    <br><br>
+
+    <!-- Button to trigger selection check -->
+    <input type="button" value="Color selected" onclick="checkColor()">
+
+    <!-- Output area -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

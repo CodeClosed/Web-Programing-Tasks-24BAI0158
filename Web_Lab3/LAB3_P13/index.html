@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Order Form</title>
+
+  <script>
+
+    // Function to calculate total price of selected products
+    function calValue() {
+
+      // Get all product checkboxes
+      let prods = document.getElementsByName("product");
+
+      // Variable to store total value
+      let value = 0;
+
+      // Modern for...of loop to iterate through checkbox collection
+      for (let item of prods) {
+
+        // Check if the checkbox is selected
+        if (item.checked) {
+
+          // Convert price string to number using parseFloat
+          value += parseFloat(item.value);
+        }
+      }
+
+      // Display the calculated total price
+      document.getElementById("output").innerHTML =
+        "Total Value: " + value;
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <h1>Product Order Form</h1>
+
+  <form id="groceryForm">
+
+    <!-- First category -->
+    <fieldset>
+      <legend>Fruits</legend>
+
+      <label>
+        <input type="checkbox" name="product" value="12.99">
+        Apple (12.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="11.99">
+        Orange (11.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="10.99">
+        Bananas (10.99)
+      </label><br>
+    </fieldset>
+
+    <!-- Second category -->
+    <fieldset>
+      <legend>Dairy</legend>
+
+      <label>
+        <input type="checkbox" name="product" value="13.99">
+        Milk (13.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="14.99">
+        Curd (14.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="15.99">
+        Cheese (15.99)
+      </label><br>
+    </fieldset>
+
+    <!-- Third category -->
+    <fieldset>
+      <legend>Pantry Staples</legend>
+
+      <label>
+        <input type="checkbox" name="product" value="9.99">
+        Rice (9.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="8.99">
+        Pulses (8.99)
+      </label><br>
+
+      <label>
+        <input type="checkbox" name="product" value="7.99">
+        Flour (7.99)
+      </label><br>
+    </fieldset>
+
+    <br>
+
+    <!-- Button to calculate total -->
+    <button type="button" onclick="calValue();">
+      Calculate
+    </button>
+
+    <!-- Output area -->
+    <p id="output"></p>
+
+  </form>
+
+  <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

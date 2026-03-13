@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Property</title>
+
+    <style>
+        /* CSS class for bold text */
+        .boldText {
+            font-weight: bold;
+        }
+
+        /* CSS class for italic text */
+        .italicText {
+            font-style: italic;
+        }
+
+        /* CSS class for small-caps text */
+        .smallCapsText {
+            font-variant: small-caps;
+        }
+    </style>
+
+    <script>
+
+        // Apply bold style
+        function boldStyle() {
+            let message = document.getElementById("output");
+            message.className = "boldText";
+        }
+
+        // Apply italic style
+        function italicStyle() {
+            let message = document.getElementById("output");
+            message.className = "italicText";
+        }
+
+        // Apply small caps style
+        function smallCapStyle() {
+            let message = document.getElementById("output");
+            message.className = "smallCapsText";
+        }
+
+        // Apply multiple styles together
+        function allStyle() {
+            let message = document.getElementById("output");
+
+            // Assign multiple CSS classes at once
+            message.className = "boldText italicText smallCapsText";
+        }
+
+        // Clear all styles
+        function clearStyle() {
+            let message = document.getElementById("output");
+
+            // Remove all CSS classes
+            message.className = "";
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>CSS Property</h1>
+
+    <form id="styleForm">
+
+        <!-- Fieldset for individual styles -->
+        <fieldset>
+            <legend>Text Style</legend>
+
+            <input type="button" value="Bold" onclick="boldStyle();">
+
+            <input type="button" value="Italic" onclick="italicStyle();">
+
+            <input type="button" value="Small-Caps" onclick="smallCapStyle();">
+        </fieldset>
+
+        <!-- Fieldset for combined styles -->
+        <fieldset>
+            <legend>Multiple-Styles</legend>
+
+            <input type="button" value="Apply-All" onclick="allStyle();">
+
+            <input type="button" value="Clear" onclick="clearStyle();">
+        </fieldset>
+
+        <!-- Text that will be styled -->
+        <p id="output">
+            This is a sample message to demonstrate text styling.
+        </p>
+
+    </form>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

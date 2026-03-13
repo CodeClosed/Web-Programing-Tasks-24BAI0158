@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Information System</title>
+
+    <style>
+        /* Basic CSS styling for the page */
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        /* Styling the form */
+        form {
+            width: 300px;
+            margin: auto;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+
+        /* Styling the table */
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ddd;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+
+        // Global array to store student objects
+        var students = [];
+
+        // Constructor function for Student object
+        function Student(name, age, course, gender) {
+
+            // Assignment statements
+            this.name = name;
+            this.age = age;
+            this.course = course;
+            this.gender = gender;
+
+            // Object method using "this"
+            this.getDetails = function () {
+                return this.name + " | " + this.age + " | " + this.course + " | " + this.gender;
+            };
+        }
+
+        // Function to add a student
+        function addStudent(form) {
+
+            // Access form elements
+            var name = form.elements["name"].value;
+            var age = form.elements["age"].value;
+            var course = form.elements["course"].value;
+            var gender = form.elements["gender"].value;
+
+            // Create new student object
+            var studentObj = new Student(name, age, course, gender);
+
+            // Add object to array
+            students.push(studentObj);
+
+            // Update table dynamically
+            displayStudents();
+
+            // Reset the form
+            form.reset();
+
+            // Focus back to first field
+            form.elements["name"].focus();
+        }
+
+        // Function to display students in table
+        function displayStudents() {
+
+            var table = document.getElementById("studentTable");
+
+            // Clear previous table rows except header
+            table.innerHTML =
+                "<tr><th>Name</th><th>Age</th><th>Course</th><th>Gender</th></tr>";
+
+            // Loop through array
+            for (var i = 0; i < students.length; i++) {
+
+                var row = "<tr>" +
+                    "<td>" + students[i].name + "</td>" +
+                    "<td>" + students[i].age + "</td>" +
+                    "<td>" + students[i].course + "</td>" +
+                    "<td>" + students[i].gender + "</td>" +
+                    "</tr>";
+
+                table.innerHTML += row;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h2>Student Information System</h2>
+
+    <!-- Student Form -->
+    <form id="studentForm">
+
+        Name:
+        <input type="text" name="name"><br><br>
+
+        Age:
+        <input type="number" name="age"><br><br>
+
+        Course:
+        <select name="course">
+            <option value="CSE">CSE</option>
+            <option value="IT">IT</option>
+            <option value="ECE">ECE</option>
+        </select>
+        <br><br>
+
+        Gender:
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <br><br>
+
+        <!-- Button controls -->
+        <button type="button" onclick="addStudent(this.form)">Add Student</button>
+
+        <button type="reset">Clear</button>
+
+    </form>
+
+    <!-- Dynamic table -->
+    <table id="studentTable">
+
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Gender</th>
+        </tr>
+
+    </table>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

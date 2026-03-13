@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>print N</title>
+
+    <script>
+        // Function to print numbers from 1 to N
+        function printNumber() {
+
+            // Get the value entered by the user
+            let n = parseInt(document.getElementById("num1").value);
+
+            // Initialize counter variable
+            let i = 1;
+
+            // Variable to store output string
+            result = "Result: ";
+
+            // While loop runs until i becomes greater than N
+            while (n >= i) {
+
+                // Append the current number to the result string
+                result = result + " " + i;
+
+                // Increment the counter
+                i++;
+            }
+
+            // Display the result inside the output paragraph
+            document.getElementById("output").innerHTML = result;
+        } 
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Heading -->
+    <h3>Print N numbers</h3>
+
+    <!-- Input field to enter number N -->
+    Number: <input type="number" id="num1" step="any"><br><br>
+
+    <!-- Button to trigger the function -->
+    <input type="button" value="Print Numbers" onclick="printNumber();">
+
+    <!-- Area where numbers will be displayed -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

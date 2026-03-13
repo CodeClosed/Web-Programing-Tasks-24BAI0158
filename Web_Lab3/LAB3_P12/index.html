@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Selection</title>
+
+    <script>
+
+        // Function to validate selected skills
+        function checkTheValidity() {
+
+            // Get the form element
+            let form = document.getElementById("skillForm");
+
+            // Use HTML5 form validation
+            if (!form.checkValidity()) {
+                document.getElementById("output").innerHTML =
+                    "Please select at least one skill.";
+                return;
+            }
+
+            // Get all checkbox elements with name "skills"
+            let skillsSelected = document.getElementsByName("skills");
+
+            // Array to store selected skills
+            let skillsList = [];
+
+            // Loop through all checkboxes
+            for (let i = 0; i < skillsSelected.length; i++) {
+
+                // Check if checkbox is selected
+                if (skillsSelected[i].checked) {
+
+                    // Add selected skill to array
+                    skillsList.push(skillsSelected[i].value);
+                }
+            }
+
+            // Check if at least 3 skills are selected
+            if (skillsList.length >= 3) {
+
+                // Display selected skills
+                document.getElementById("output").innerHTML =
+                    "Selected Skills: " + skillsList.join(", ");
+
+            } else {
+
+                // Display error message
+                document.getElementById("output").innerHTML =
+                    "Error: Select at least 3 skills.";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Skill Check</h1>
+
+    <!-- Skill selection form -->
+    <form id="skillForm">
+
+        <!-- Multiple checkbox options -->
+        <label><input type="checkbox" name="skills" value="HTML" required> HTML</label><br>
+
+        <label><input type="checkbox" name="skills" value="CSS"> CSS</label><br>
+
+        <label><input type="checkbox" name="skills" value="JS"> JS</label><br>
+
+        <label><input type="checkbox" name="skills" value="Python"> Python</label><br>
+
+        <label><input type="checkbox" name="skills" value="C#"> C#</label><br>
+
+        <label><input type="checkbox" name="skills" value="R"> R</label><br><br>
+
+        <!-- Button to validate skills -->
+        <button type="button" onclick="checkTheValidity()">Check</button>
+
+    </form>
+
+    <!-- Output display -->
+    <p id="output"></p>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Font Customization Tool</title>
+
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Preview area where styles will be applied */
+        #previewArea {
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+
+            /* Default font size and background */
+            font-size: 16px;
+            background-color: #ffffff;
+        }
+
+        /* Spacing between fieldsets */
+        fieldset {
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <script>
+
+        // Variable to store preview area element
+        let previewArea;
+
+        // Run script after page loads
+        window.onload = function () {
+
+            // Get preview text area
+            previewArea = document.getElementById("previewArea");
+
+            // Get input controls
+            const fontSizeSlider = document.getElementById("fontSize");
+            const fontColorPicker = document.getElementById("fontColor");
+            const bgColorPicker = document.getElementById("bgColor");
+
+            // Change font size dynamically
+            fontSizeSlider.addEventListener("input", function () {
+
+                // Modify CSS using style property
+                previewArea.style.fontSize = this.value + "px";
+            });
+
+            // Change text color dynamically
+            fontColorPicker.addEventListener("input", function () {
+
+                previewArea.style.color = this.value;
+            });
+
+            // Change background color dynamically
+            bgColorPicker.addEventListener("input", function () {
+
+                previewArea.style.backgroundColor = this.value;
+            });
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Dynamic Font Customization Tool</h1>
+
+    <form id="styleForm">
+
+        <!-- Font size control -->
+        <fieldset>
+            <legend>Change Font Size</legend>
+
+            <!-- Range slider input -->
+            <input type="range" id="fontSize" min="10" max="72" value="16">
+        </fieldset>
+
+        <!-- Font color control -->
+        <fieldset>
+            <legend>Font Color</legend>
+
+            <!-- Color picker input -->
+            <input type="color" id="fontColor" value="#000000">
+        </fieldset>
+
+        <!-- Background color control -->
+        <fieldset>
+            <legend>Background Color</legend>
+
+            <!-- Color picker input -->
+            <input type="color" id="bgColor" value="#ffffff">
+        </fieldset>
+
+    </form>
+
+    <!-- Text preview area -->
+    <div id="previewArea">
+
+        This is a live preview text.
+        Adjust the controls above to customize the font size, text color,
+        and background color dynamically.
+
+    </div>
+
+    <p>VIHAAN VARSHNEY 24BAI0158</p>
+</body>
+
+</html>
