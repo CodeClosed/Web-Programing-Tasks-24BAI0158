@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Container styling (box model + layout) */
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Input styling */
+        input {
+            padding: 8px;
+            width: 70%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Button styling */
+        button {
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        li {
+            padding: 8px;
+            margin: 5px 0;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Root element -->
+<div id="root"></div>
+
+<script type="text/babel">
+
+// React Functional Component
+function ToDoList() {
+
+    // useState Hook (string state for input)
+    const [inputValue, setInputValue] = React.useState('');
+
+    // useState Hook (array state for list of tasks)
+    const [itemsList, setItemsList] = React.useState([]);
+
+    // Event handler for input change (controlled component)
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
+    // Event handler to add item to list
+    const handleAddItem = () => {
+
+        // Prevent adding empty tasks
+        if (inputValue.trim() === '') return;
+
+        // Use spread operator to maintain immutability
+        setItemsList([...itemsList, inputValue]);
+
+        // Clear input after adding
+        setInputValue('');
+    };
+
+    return (
+        <div className="container">
+            <h2>To Do List</h2>
+
+            {/* Controlled input field */}
+            <input
+                type="text"
+                placeholder="Add Task"
+                value={inputValue}
+                onChange={handleInputChange}
+            />
+
+            {/* Button with onClick event */}
+            <button onClick={handleAddItem}>
+                Add
+            </button>
+
+            {/* Dynamic list rendering using map() */}
+            <ul>
+                {itemsList.map((item, index) => (
+                    // key helps React optimize rendering
+                    <li key={index}>
+                        {item}
+                    </li>
+                ))}
+            </ul>
+                        <h2>VIHAAN VARSHNEY 24BAI0158</h2>
+
+        </div>
+    );
+}
+
+// DOM access
+const rootElement = document.getElementById("root");
+
+// Create root (React 18)
+const root = ReactDOM.createRoot(rootElement);
+
+// Render component
+root.render(<ToDoList />);
+
+</script>
+
+</body>
+</html>
+

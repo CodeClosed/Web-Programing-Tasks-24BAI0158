@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Flexbox layout for thumbnails */
+        ul {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Thumbnail images */
+        .selectImg {
+            border: 2px solid black;
+            width: 150px;
+            height: 150px;
+            border-radius: 25px;
+
+            /* Smooth animation (transition requirement) */
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect (transform requirement) */
+        .selectImg:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        /* Main preview image */
+        .main {
+            width: 600px;
+            height: 600px;
+            border-radius: 25px;
+            border: 2px solid black;
+        }
+
+        /* Container for centering main image */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Root Element -->
+<div id="root"></div>
+
+<script type="text/babel">
+
+    // Array of images (Dynamic image sources)
+    const images = [
+        { id: 1, image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb" },
+        { id: 2, image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7" },
+        { id: 3, image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" },
+        { id: 4, image: "https://images.unsplash.com/photo-1491553895911-0055eca6402d" },
+        { id: 5, image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470" },
+        { id: 6, image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e" }
+    ];
+
+    // React Functional Component
+    function ImageGallery() {
+
+        // useState Hook → stores currently selected image
+        const [displayImg, setDisplayImg] = React.useState(images[0].image);
+
+        return (
+            <div>
+
+                {/* Main Image Preview */}
+                <div className="container">
+                    <img className="main" src={displayImg} />
+                </div>
+
+                {/* Thumbnail List using map() */}
+                <ul>
+                    {images.map((file) => (
+                        <li key={file.id}>  {/* key prop for optimization */}
+                            
+                            {/* Click event updates main image */}
+                            <img
+                                className="selectImg"
+                                src={file.image}
+                                onClick={() => setDisplayImg(file.image)}
+                            />
+
+                        </li>
+                    ))}
+                </ul>
+                <h2>VIHAAN VARSHNEY 24BAI0158</h2>
+            </div>
+        );
+    }
+
+    // DOM Access
+    const rootElement = document.getElementById("root");
+
+    // Create Root (React 18)
+    const root = ReactDOM.createRoot(rootElement);
+
+    // Render Component
+    root.render(<ImageGallery />);
+
+</script>
+
+</body>
+</html>
+

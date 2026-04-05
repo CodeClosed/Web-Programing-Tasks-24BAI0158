@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Input styling */
+        input {
+            margin: 10px;
+            padding: 8px;
+            width: 200px;
+        }
+
+        /* Button styling */
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Root element where React app will render -->
+<div id="root"></div>
+
+<script type="text/babel">
+
+// React Functional Component
+function GradeCalculator() {
+
+    // Multiple useState Hooks (state management)
+    const [math, setMath] = React.useState("");
+    const [physics, setPhysics] = React.useState("");
+    const [chem, setChem] = React.useState("");
+
+    const [avg, setAvg] = React.useState(0);
+    const [grade, setGrade] = React.useState("");
+
+    // Event handler function (arrow function)
+    const calculateGrade = () => {
+
+        // Validate inputs (optional improvement)
+        if (math === "" || physics === "" || chem === "") {
+            setGrade("Please enter all marks");
+            setAvg(0);
+            return;
+        }
+
+        // Type conversion (string → number)
+        const m = Number(math);
+        const p = Number(physics);
+        const c = Number(chem);
+
+        // Arithmetic operation (average calculation)
+        const average = (m + p + c) / 3;
+
+        // Update average state
+        setAvg(average);
+
+        // Conditional logic (if-else if-else)
+        if (average >= 75) {
+            setGrade("Grade A");
+        } else if (average >= 60) {
+            setGrade("Grade B");
+        } else if (average >= 40) {
+            setGrade("Grade C");
+        } else {
+            setGrade("Fail");
+        }
+    };
+
+    return (
+        <div>
+            <h1>Student Grade Calculator</h1>
+
+            {/* Controlled Components (inputs tied to state) */}
+            <input
+                type="number"
+                placeholder="Enter Math Marks"
+                value={math}
+                onChange={(e) => setMath(e.target.value)}
+            />
+
+            <input
+                type="number"
+                placeholder="Enter Physics Marks"
+                value={physics}
+                onChange={(e) => setPhysics(e.target.value)}
+            />
+
+            <input
+                type="number"
+                placeholder="Enter Chemistry Marks"
+                value={chem}
+                onChange={(e) => setChem(e.target.value)}
+            />
+
+            <br />
+
+            {/* Button with onClick event */}
+            <button onClick={calculateGrade}>
+                Calculate Grade
+            </button>
+
+            {/* Output Section */}
+            <h2>
+                Average: {avg !== 0 ? avg.toFixed(2) : "-"}
+            </h2>
+
+            <h2>
+                Grade: {grade}
+            </h2>
+            <h2>VIHAAN VARSHNEY 24BAI0158</h2>
+
+        </div>
+    );
+}
+
+// DOM access
+const rootElement = document.getElementById("root");
+
+// Create root (React 18)
+const root = ReactDOM.createRoot(rootElement);
+
+// Render component
+root.render(<GradeCalculator />);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalized Welcome App</title>
+
+    <!-- React Libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Root Element -->
+    <div id="root" style="background-color:lightblue; padding:30px;"></div>
+
+    <script type="text/babel">
+
+        // Functional Component using Props
+        function Welcome(props) {
+            return (
+                <div style={{ textAlign: "center", fontFamily: "Arial" }}>
+                    <h1 style={{ color: "darkblue" }}>
+                        Hello, Welcome {props.name} from {props.city}
+                    </h1>
+
+                    <p style={{ fontSize: "18px" }}>
+                        This is a React application demonstrating functional components,
+                        props, JSX, and inline styling.
+                    </p>
+                    <p>vihaan varshney 24BAI0158</p>
+                </div>
+            );
+        }
+
+        // DOM Access
+        const rootElement = document.getElementById("root");
+
+        // Create Root
+        const root = ReactDOM.createRoot(rootElement);
+
+        // Render Component with Props
+        root.render(
+            <Welcome name="Vihaan Varshney" city="Ghaziabad" />
+        );
+
+    </script>
+
+</body>
+</html>
